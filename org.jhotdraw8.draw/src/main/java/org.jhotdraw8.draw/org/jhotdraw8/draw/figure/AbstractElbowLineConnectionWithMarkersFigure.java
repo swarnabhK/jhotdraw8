@@ -242,7 +242,7 @@ public abstract class AbstractElbowLineConnectionWithMarkersFigure extends Abstr
      */
     public abstract @Nullable CssSize getElbowOffset();
 
-
+    //TODO: Avoid unused local variables,FIXME: Remove the unitConverter variable in line 285.
     @Override
     public void layout(@NonNull RenderContext ctx) {
         Point2D start = getNonNull(START).getConvertedValue();

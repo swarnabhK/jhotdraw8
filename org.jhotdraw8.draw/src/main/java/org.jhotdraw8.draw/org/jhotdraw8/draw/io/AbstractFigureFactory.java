@@ -298,6 +298,7 @@ public abstract class AbstractFigureFactory implements FigureFactory {
     }
 
     @Override
+    //TODO: Avoid duplicate string literal,FIXME: the string literal "in figure" appears 4 times. First occurrence in line 304. Replace with variable.
     public MapAccessor<?> getKeyByElementName(@NonNull Figure f, String elementName) throws IOException {
         HashMap<String, MapAccessor<?>> strToKey = elemToKey.get(f.getClass());
         if (strToKey == null || !strToKey.containsKey(elementName)) {

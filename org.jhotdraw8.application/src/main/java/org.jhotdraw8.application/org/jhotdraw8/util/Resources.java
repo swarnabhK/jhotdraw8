@@ -201,7 +201,7 @@ public interface Resources {
     //TODO: Avoid calling toString() on String objects; this is unnecessary, FIXME: Remove the toString() method.
     default @NonNull String format(@NonNull String key, Object... arguments) {
         //return String.format(resource.getLocale(), getString(key), arguments);
-        return new Formatter(getLocale()).format(getString(key), arguments).toString();
+        return new Formatter(getLocale()).format(getString(key), arguments);
     }
 
     /**

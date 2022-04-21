@@ -205,6 +205,7 @@ public class NumberConverter implements Converter<Number> {
     }
 
     @Override
+    //TODO: Avoid creating BigDecimal with a decimal (float/double) literal, FIXME: Use a String literal in line 228
     public void toString(@NonNull Appendable buf, @Nullable IdSupplier idSupplier, @Nullable Number value) throws IOException {
         if (value == null && allowsNullValue) {
             return;

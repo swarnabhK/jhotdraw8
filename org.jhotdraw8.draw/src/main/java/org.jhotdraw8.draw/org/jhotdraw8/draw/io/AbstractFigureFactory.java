@@ -458,7 +458,7 @@ public abstract class AbstractFigureFactory implements FigureFactory {
     /**
      * Globally renames the specified key.
      */
-    
+
 
     /**
      * Globally removes the specified key.
@@ -554,11 +554,10 @@ public abstract class AbstractFigureFactory implements FigureFactory {
             this.acc = acc;
         }
 
-        //TODO: Unnecessary local before return ,FIXME: Consider simply returning the value vs storing it in local variable 'hash' line 575
+
         @Override
         public int hashCode() {
-            int hash = 7;
-            return hash;
+            return 7;
         }
 
         @Override

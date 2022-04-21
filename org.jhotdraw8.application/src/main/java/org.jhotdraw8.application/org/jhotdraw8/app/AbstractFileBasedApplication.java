@@ -217,7 +217,7 @@ public abstract class AbstractFileBasedApplication extends AbstractApplication i
 
         return mb;
     }
-
+    //TODO: Avoid unused method parameters,FIXME: Remove the formal parameter activity in line 220.
     private void createWindowMenu(@Nullable FileBasedActivity activity, Menu menu) {
         Map<Activity, CheckMenuItem> menuItemMap = new WeakHashMap<>();
         CustomBinding.bindListContentToSet(menu.getItems(), getActivities(),

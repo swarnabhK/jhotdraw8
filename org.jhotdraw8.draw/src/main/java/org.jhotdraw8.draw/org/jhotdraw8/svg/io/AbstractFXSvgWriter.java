@@ -738,7 +738,7 @@ public abstract class AbstractFXSvgWriter extends AbstractPropertyBean implement
             w.writeAttribute("id", id);
         }
     }
-    //TODO: Avoid using if statements without curly braces as best practice,FIXME: make the changes in line 760.
+
     private void writeImageViewStartElement(@NonNull XMLStreamWriter w, @NonNull ImageView
             node) throws IOException, XMLStreamException {
         w.writeStartElement("image");
@@ -758,7 +758,9 @@ public abstract class AbstractFXSvgWriter extends AbstractPropertyBean implement
                 ByteArrayOutputStream bout = new ByteArrayOutputStream();
                 final BufferedImage im = fromFXImage(node.getImage(), null);
                 if (im == null)
+                {
                     throw new IOException("Could not create an AWT image.");
+                }
                 ImageIO.write(im, "PNG", bout);
                 bout.close();
                 byte[] imageData = bout.toByteArray();

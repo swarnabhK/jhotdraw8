@@ -205,7 +205,6 @@ public class NumberConverter implements Converter<Number> {
     }
 
     @Override
-    //TODO: Avoid creating BigDecimal with a decimal (float/double) literal, FIXME: Use a String literal in line 228
     public void toString(@NonNull Appendable buf, @Nullable IdSupplier idSupplier, @Nullable Number value) throws IOException {
         if (value == null && allowsNullValue) {
             return;
@@ -225,7 +224,7 @@ public class NumberConverter implements Converter<Number> {
                 buf.append("NaN");
             } else {
                 String str;
-                BigDecimal big = new BigDecimal(v);
+                BigDecimal big = new BigDecimal(String.valueOf(v));
                 int exponent = big.scale() >= 0 ? big.precision() - big.scale() : -big.scale();
                 if (!usesScientificNotation || exponent > minNegativeExponent
                         && exponent < minPositiveExponent) {

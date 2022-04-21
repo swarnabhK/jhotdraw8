@@ -539,7 +539,6 @@ public abstract class AbstractFileBasedApplication extends AbstractApplication i
 
 
     @Override
-    //TODO: Empty If statement,FIXME: Remove the empty if statement in line 552.
     public void start(Stage primaryStage) throws Exception {
         startUserAgentStylesheet();
         try {
@@ -549,19 +548,6 @@ public abstract class AbstractFileBasedApplication extends AbstractApplication i
         }
 
         loadRecentUris(get(NAME_KEY));
-        if (isSystemMenuSupported) {
-            /*
-            Platform.setImplicitExit(false);
-            systemMenus = new ArrayList<>();
-            ArrayList<MenuBase> menus = new ArrayList<>();
-            MenuBar mb = createMenuBar(null, getActionMap());
-            for (Menu m : mb.getMenus()) {
-                systemMenus.add(m);
-                menus.add(GlobalMenuAdapter.adapt(m));
-            }
-            Toolkit.getToolkit().getSystemMenu().setMenus(menus);
-*/
-        }
 
         List<URI> urisToOpen = getUrisToOpen();
         if (urisToOpen.isEmpty()) {

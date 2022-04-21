@@ -242,7 +242,6 @@ public abstract class AbstractElbowLineConnectionWithMarkersFigure extends Abstr
      */
     public abstract @Nullable CssSize getElbowOffset();
 
-    //TODO: Avoid unused local variables,FIXME: Remove the unitConverter variable in line 285.
     @Override
     public void layout(@NonNull RenderContext ctx) {
         Point2D start = getNonNull(START).getConvertedValue();
@@ -282,7 +281,6 @@ public abstract class AbstractElbowLineConnectionWithMarkersFigure extends Abstr
         //ObservableList<Double> points = path.getPoints();
         // points.clear();
         CssSize elbowOffsetSize = getElbowOffset();
-        UnitConverter unitConverter = ctx.getNonNull(RenderContext.UNIT_CONVERTER_KEY);
         if (elbowOffset == 0 || endTangent == null || FXGeom.squaredMagnitude(endTangent) < 1e-7) {
             points.addAll(start.getX(), start.getY());
             points.addAll(end.getX(), end.getY());

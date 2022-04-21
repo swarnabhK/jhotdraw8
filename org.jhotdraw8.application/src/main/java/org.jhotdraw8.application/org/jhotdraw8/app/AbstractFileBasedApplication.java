@@ -539,6 +539,7 @@ public abstract class AbstractFileBasedApplication extends AbstractApplication i
 
 
     @Override
+    //TODO: Empty If statement,FIXME: Remove the empty if statement in line 552.
     public void start(Stage primaryStage) throws Exception {
         startUserAgentStylesheet();
         try {

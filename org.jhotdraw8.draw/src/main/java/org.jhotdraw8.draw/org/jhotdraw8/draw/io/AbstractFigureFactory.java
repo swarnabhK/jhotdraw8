@@ -51,6 +51,7 @@ public abstract class AbstractFigureFactory implements FigureFactory {
     private final Map<MapAccessor<?>, Converter<?>> keyValueToXML = new HashMap<>();
     private final Map<String, Supplier<Figure>> nameToFigure = new HashMap<>();
     private String objectIdAttribute = "id";
+    private String inFigure = " in figure ";
     private final Map<String, HashSet<Class<? extends Figure>>> skipAttributes = new HashMap<>();
     private final Set<String> skipElements = new HashSet<>();
     private final Set<Class<? extends Figure>> skipFigures = new HashSet<>();
@@ -298,12 +299,11 @@ public abstract class AbstractFigureFactory implements FigureFactory {
     }
 
     @Override
-    //TODO: Avoid duplicate string literal,FIXME: the string literal "in figure" appears 4 times. First occurrence in line 304. Replace with variable.
     public MapAccessor<?> getKeyByElementName(@NonNull Figure f, String elementName) throws IOException {
         HashMap<String, MapAccessor<?>> strToKey = elemToKey.get(f.getClass());
         if (strToKey == null || !strToKey.containsKey(elementName)) {
             throw new IOException("no mapping for attribute " + elementName
-                    + " in figure " + f.getClass());
+                    + inFigure + f.getClass());
         }
         return strToKey.get(elementName);
     }
@@ -396,7 +396,7 @@ public abstract class AbstractFigureFactory implements FigureFactory {
             keyToStr = keyToElem.get(f.getClass());
         }
         if (keyToStr == null || !keyToStr.containsKey(key)) {
-            throw new IOException("no mapping for key " + key + " in figure "
+            throw new IOException("no mapping for key " + key + inFigure
                     + f.getClass());
         }
         return keyToStr.get(key);
@@ -409,7 +409,7 @@ public abstract class AbstractFigureFactory implements FigureFactory {
             keyToStr = keyToAttr.get(f.getClass());
         }
         if (keyToStr == null || !keyToStr.containsKey(key)) {
-            throw new IOException("no mapping for key " + key + " in figure "
+            throw new IOException("no mapping for key " + key + inFigure
                     + f.getClass());
         }
         return keyToStr.get(key);
@@ -431,7 +431,7 @@ public abstract class AbstractFigureFactory implements FigureFactory {
             Set<Class<? extends Figure>> set = (skipAttributes.get(attributeName));
             if (set == null || !set.contains(f.getClass())) {
                 LOGGER.warning("no mapping for attribute " + attributeName
-                        + " in figure " + f.getClass());
+                        + inFigure + f.getClass());
                 return null;
             }
         }
